@@ -39,6 +39,16 @@ build_one() {
   docker cp "${cid}:/opt/php" "${stage}/php" >/dev/null
   docker rm "${cid}" >/dev/null
 
+  # Functional smoke: boot the built PHP, exercise sessions + a real multipart
+  # upload, assert it works. Saved into the artifact's provenance dir.
+  echo "--- functional smoke ---"
+  if docker run --rm --platform "${PLATFORM}" -v "$(pwd)/smoke:/smoke:ro" "${img}" \
+       bash /smoke/run.sh > "${stage}/php/emphere/smoke.txt" 2>&1; then
+    tail -1 "${stage}/php/emphere/smoke.txt"
+  else
+    echo "SMOKE FAILED — see ${stage}/php/emphere/smoke.txt"; tail -5 "${stage}/php/emphere/smoke.txt"; exit 1
+  fi
+
   # Redistributable tarball + checksum.
   local tgz="out/php-${ver}-emphere-backport-$(echo "${PLATFORM}" | tr '/' '-').tar.gz"
   tar -C "${stage}" -czf "${tgz}" php

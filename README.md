@@ -17,7 +17,9 @@ these PHP versions shipped against):
    opcache, pdo_sqlite.
 5. Runs the regression tests that ship *inside the fix* plus the session / upload
    surface the CVEs live in (`ext/session/tests`, `ext/zend_test/tests`, `sapi/cli/tests`).
-6. Stamps provenance next to the binary and emits a `.tar.gz` + `.sha256`.
+6. Boots the built PHP and runs a **functional smoke**: session persistence across
+   requests + a real multipart upload (received, moved, byte-exact).
+7. Stamps provenance next to the binary and emits a `.tar.gz` + `.sha256`.
 
 ## Provenance of the patches
 
