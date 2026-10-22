@@ -1,0 +1,2 @@
+# Build outputs (binaries ship via GitHub Releases, not git)
+out/

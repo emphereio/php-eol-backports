@@ -1,0 +1,20 @@
+Emphere EOL-PHP backports
+=========================
+
+This repository builds end-of-life PHP (7.4, 8.0, 8.1) with the official
+upstream security fix for CVE-2026-109618 and CVE-2026-109619 ("php2shell")
+applied.
+
+The PHP source and the security patches are the work of The PHP Group and the
+PHP core development team, distributed under the PHP License v3.01
+(https://www.php.net/license/). The patches under patches/ are the unmodified
+.patch of the corresponding php/php-src security commits. Emphere did not author
+the security fix.
+
+Emphere's contribution is the build harness (Dockerfile, build.sh), the test
+run, and the signed, SBOM-accompanied artifacts. These are provided as-is, with
+no warranty, as a convenience for operators running EOL PHP who cannot build
+from source themselves.
+
+PHP is a trademark of The PHP Group. Emphere is not affiliated with or endorsed
+by The PHP Group.
