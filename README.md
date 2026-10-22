@@ -10,7 +10,8 @@ this repository builds and publishes exactly that — as downloadable binaries y
 can verify, and as a one-command build you can reproduce yourself.
 
 Maintained by [Emphere](https://emphere.io). Questions, or need a version that
-isn't here? **[contact@emphere.com](mailto:contact@emphere.com)** — see
+isn't here? **[Book a call](https://calendly.com/ak-emphere/emphere-container-security-strategy-call)**
+or **[contact@emphere.com](mailto:contact@emphere.com)** — see
 [Need help?](#need-help) below.
 
 ---
@@ -148,7 +149,8 @@ this out?**
 Running EOL PHP you can't easily upgrade, stuck on a version or architecture not
 published here, or dealing with a broader supply-chain or CVE-remediation problem?
 
-**Email [contact@emphere.com](mailto:contact@emphere.com)** or open an issue. We
+**[Book a call](https://calendly.com/ak-emphere/emphere-container-security-strategy-call)**,
+email **[contact@emphere.com](mailto:contact@emphere.com)**, or open an issue. We
 build and verify fixed versions of stuck software for a living — EOL runtimes,
 other architectures, other packages, signed artifacts with provenance. Happy to
 help, no charge for a conversation.
