@@ -69,8 +69,11 @@ RUN ./configure \
 #     artifact, so this never fails the build (results are inspected after).
 RUN set -eux; \
     export NO_INTERACTION=1 REPORT_EXIT_STATUS=0 SKIP_ONLINE_TESTS=1; \
-    ( make test TESTS="ext/session/tests ext/zend_test/tests sapi/cli/tests" \
-        2>&1 | tee /src/test.log ) || true; \
+    TDIRS=""; for d in ext/session/tests ext/zend_test/tests sapi/cli/tests; do \
+        [ -d "$d" ] && TDIRS="$TDIRS $d"; \
+    done; \
+    echo "running tests in:$TDIRS"; \
+    ( make test TESTS="$TDIRS" 2>&1 | tee /src/test.log ) || true; \
     { grep -E "Number of tests|tests failed|FAILED|PASS|Tests (passed|failed)" /src/test.log || true; } \
       | tail -40 > /src/test-summary.txt; \
     cat /src/test-summary.txt
